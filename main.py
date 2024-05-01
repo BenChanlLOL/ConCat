@@ -1,4 +1,10 @@
 import socket
+'''
+Author: "BenChanlLOL" on github
+Name: ConCat
+Version: 0.0.2
+'''
+
 
 
 
@@ -29,9 +35,8 @@ while True:
         break
     elif cmd == "bind":
         try:
-            address2 = input("what is the server's IP?  ")
             port2 = int(input("what is the server's port?  "))
-            sock.bind((address2, port2))
+            sock.bind((0.0.0.0, port2))
             print("server started")
         except OSError as e:
             print("Error occurred while binding socket: " + str(e))
@@ -48,7 +53,7 @@ while True:
             data = sock.recv(1024).decode("utf-8")
             print(data)
     elif cmd == "version" or "-v":
-        print("version: 0.0.1")
+        print("version: 0.0.2")
     elif cmd == "troubleshoot":
         print("If you are attempting to ssh using this client a BrokenPipeError is a indicator of wrong password")
     elif cmd == "help" or "-h":
