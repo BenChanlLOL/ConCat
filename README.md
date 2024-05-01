@@ -1,4 +1,4 @@
-Concat is a multi-purpose tool for network fritten in python
+Concat is a multi-purpose tool for network written in python
 
 install using
 `git clone https://github.com/BenChanlLOL/ConCat.git `
