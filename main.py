@@ -2,7 +2,7 @@ import socket
 '''
 Author: "BenChanlLOL" on github
 Name: ConCat
-Version: 0.0.2
+Version: 0.0.3
 '''
 
 
@@ -13,6 +13,8 @@ sock = socket.socket()
 
 while True:
     address1 = input("what ip should we connect to?    ")
+    if address1 == "ignore":
+        break
     try:
         port1 = int(input("what port should we connect to?    "))
     except ValueError as e:
@@ -35,8 +37,7 @@ while True:
         break
     elif cmd == "bind":
         try:
-            port2 = int(input("what is the server's port?  "))
-            sock.bind((0.0.0.0, port2))
+            sock.bind((socket.gethostname(), 7092))
             print("server started")
         except OSError as e:
             print("Error occurred while binding socket: " + str(e))
@@ -53,9 +54,12 @@ while True:
             data = sock.recv(1024).decode("utf-8")
             print(data)
     elif cmd == "version" or "-v":
-        print("version: 0.0.2")
+        print("version: 0.0.3")
     elif cmd == "troubleshoot":
-        print("If you are attempting to ssh using this client a BrokenPipeError is a indicator of wrong password")
+        print("If you are attempting to ssh using this client a BrokenPipeError is a indicator of wrong password"
+              "When Using SSH a small delay after the first message will occur, then echo the SSH version. "
+              "Then you will have three opportunities to enter a password"
+              )
     elif cmd == "help" or "-h":
         usage = '''
         bind - start a sever
@@ -68,8 +72,3 @@ while True:
         print("usage:\n" + usage)
     else:
         print('use "help" to get info')
-
-
-
-
-
