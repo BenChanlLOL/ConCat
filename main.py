@@ -38,6 +38,7 @@ while True:
     elif cmd == "bind":
         try:
             sock.bind((socket.gethostname(), 7092))
+            print("starting on port 7092")
             print("server started")
         except OSError as e:
             print("Error occurred while binding socket: " + str(e))
