@@ -11,3 +11,5 @@ install using
 
 input the details when prompted
 Then use `help`
+
+If you want to bind a server, when asked for an IP to connect to, input "ignore"
