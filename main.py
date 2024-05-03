@@ -2,7 +2,7 @@ import socket
 '''
 Author: "BenChanlLOL" on github
 Name: ConCat
-Version: 0.0.3
+Version: 0.0.4
 '''
 
 
@@ -19,7 +19,6 @@ while True:
         port1 = int(input("what port should we connect to?    "))
     except ValueError as e:
         print("Please input a real port")
-        break
     try:
         sock.connect((address1, port1))
         print("connection established")
@@ -55,7 +54,7 @@ while True:
             data = sock.recv(1024).decode("utf-8")
             print(data)
     elif cmd == "version" or "-v":
-        print("version: 0.0.3")
+        print("version: 0.0.4")
     elif cmd == "troubleshoot":
         print("If you are attempting to ssh using this client a BrokenPipeError is a indicator of wrong password"
               "When Using SSH a small delay after the first message will occur, then echo the SSH version. "
