@@ -1,12 +1,16 @@
+# main.py
+# Author: "BenChanlLOL" on github
+# Name: ConCat
+# Version: 0.1
+# link to github project: https://github.com/BenChanlLOL/ConCat
+
 import socket
-'''
-Author: "BenChanlLOL" on github
-Name: ConCat
-Version: 0.0.4
-'''
+from sys import argv
+import webbrowser
 
 
-
+if argv:
+    print("no arguments are required")
 
 #pre defined variables
 sock = socket.socket()
@@ -34,6 +38,10 @@ while True:
     cmd = input(">>>  ")
     if cmd == "exit":
         break
+    elif cmd == "git-open":
+        print("opening github")
+        webbrowser.open('https://github.com/BenChanlLOL/ConCat')
+        print("done")
     elif cmd == "bind":
         try:
             sock.bind((socket.gethostname(), 7092))
@@ -53,15 +61,9 @@ while True:
             sock.send(msg.encode('utf-8'))
             data = sock.recv(1024).decode("utf-8")
             print(data)
-    elif cmd == "version" or "-v":
-        print("version: 0.0.4")
-    elif cmd == "troubleshoot":
-        print("If you are attempting to ssh using this client a BrokenPipeError is a indicator of wrong password"
-              "When Using SSH a small delay after the first message will occur, then echo the SSH version. "
-              "Then you will have three opportunities to enter a password"
-              )
     elif cmd == "help" or "-h":
         usage = '''
+        git-open - open github repo of the tool
         bind - start a sever
         exit - exit the tool
         connect - connect to a client and send data
@@ -70,5 +72,15 @@ while True:
         '''
 
         print("usage:\n" + usage)
+    elif cmd == "version" or "-v":
+        print("version: 0.1")
+    elif cmd == "troubleshoot":
+        print("If you are attempting to ssh using this client a BrokenPipeError is a indicator of wrong password"
+              "When Using SSH a small delay after the first message will occur, then echo the SSH version. "
+              "Then you will have three opportunities to enter a password"
+              "use 'exit' to exit the tool"
+              "if you dont want to connect to a host use 'ignore'"
+              )
+
     else:
         print('use "help" to get info')
