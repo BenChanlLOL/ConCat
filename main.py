@@ -1,7 +1,7 @@
 # main.py
 # Author: "BenChanlLOL" on github
 # Name: ConCat
-# Version: 0.1
+# Version: 0.2
 # link to github project: https://github.com/BenChanlLOL/ConCat
 
 import socket
@@ -51,6 +51,7 @@ while True:
             print("Error occurred while binding socket: " + str(e))
             print("\n")
             print("perhaps run the program as sudo")
+            print("or restart the program and, when prompted for a ip and port to connect to say 'ignore'")
     elif cmd == "connect":
         while True:
             print("client started or message sent")
