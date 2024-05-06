@@ -68,7 +68,8 @@ while True:
         exit - exit the tool
         connect - connect to a client and send data
         version - get the version of the tool
-        troubleshoot - get help
+        help - get help
+        troubleshoot - get common issues
         '''
 
         print("usage:\n" + usage)
