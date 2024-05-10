@@ -6,14 +6,18 @@
 
 import socket
 from sys import argv
+import sys
 import webbrowser
+import time
 
-
-if argv:
+if len(argv) == 2:
     print("no arguments are required")
+    sys.exit()
+
 
 #pre defined variables
 sock = socket.socket()
+serverOn = False
 
 while True:
     address1 = input("what ip should we connect to?    ")
@@ -44,7 +48,11 @@ while True:
         print("done")
     elif cmd == "bind":
         try:
+            for n in range(0,5):
+                print(n)
+                time.sleep(1)
             sock.bind((socket.gethostname(), 7092))
+            serverOn = True
             print("starting on port 7092")
             print("server started")
         except OSError as e:
@@ -52,6 +60,13 @@ while True:
             print("\n")
             print("perhaps run the program as sudo")
             print("or restart the program and, when prompted for a ip and port to connect to say 'ignore'")
+    elif cmd == "status":
+        if serverOn:
+            print("server is running")
+            print("All services are succesful")
+            print("CODE: 0")
+        else:
+            print("server is not running")
     elif cmd == "connect":
         while True:
             print("client started or message sent")
