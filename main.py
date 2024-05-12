@@ -1,7 +1,7 @@
 # main.py
 # Author: "BenChanlLOL" on github
 # Name: ConCat
-# Version: 0.2
+# Version: 0.2.2
 # link to github project: https://github.com/BenChanlLOL/ConCat
 
 import socket
@@ -9,12 +9,20 @@ from sys import argv
 import sys
 import webbrowser
 import time
+import random
 
 if len(argv) == 2:
     print("no arguments are required")
     sys.exit()
 
 
+print("Welcome to ConCat")
+num1 = random.randint(0, random.randint(0, 2048))
+num2 = random.randint(0, random.randint(0, 2048))
+num3 = random.randint(0, random.randint(0, 2048))
+num4 = random.randint(0, random.randint(0, 2048))
+session_code = str(num1 + num2 + num3 + num4)
+print("session code is:", session_code)
 #pre defined variables
 sock = socket.socket()
 serverOn = False
@@ -51,8 +59,16 @@ while True:
             for n in range(0,5):
                 print(n)
                 time.sleep(1)
-            sock.bind((socket.gethostname(), 7092))
-            serverOn = True
+            try:
+                sock.bind((socket.gethostname(), 7092))
+                print("code 0")
+            finally:
+                    serverOn = True
+                    sock.listen(5)
+                    print("listening")
+                    conn, addr = sock.accept()
+            if sock.accept:
+                print(conn, addr)
             print("starting on port 7092")
             print("server started")
         except OSError as e:
@@ -90,7 +106,7 @@ while True:
 
         print("usage:\n" + usage)
     elif cmd == "version" or "-v":
-        print("version: 0.1")
+        print("version: 0.2.2")
     elif cmd == "troubleshoot":
         print("If you are attempting to ssh using this client a BrokenPipeError is a indicator of wrong password"
               "When Using SSH a small delay after the first message will occur, then echo the SSH version. "
