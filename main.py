@@ -1,8 +1,9 @@
 # main.py
 # Author: "BenChanlLOL" on github
 # Name: ConCat
-# Version: 0.2.2
+# Version: 0.2
 # link to github project: https://github.com/BenChanlLOL/ConCat
+# updated on 14/06/2024
 
 import socket
 from sys import argv
@@ -56,7 +57,7 @@ while True:
         print("done")
     elif cmd == "bind":
         try:
-            for n in range(0,5):
+            for n in range(0,6):
                 print(n)
                 time.sleep(1)
             try:
@@ -76,6 +77,9 @@ while True:
             print("\n")
             print("perhaps run the program as sudo")
             print("or restart the program and, when prompted for a ip and port to connect to say 'ignore'")
+        while True:
+            msg = conn.recv(1024).decode("utf-8")
+            print(msg)
     elif cmd == "status":
         if serverOn:
             print("server is running")
@@ -106,7 +110,7 @@ while True:
 
         print("usage:\n" + usage)
     elif cmd == "version" or "-v":
-        print("version: 0.2.2")
+        print("version: 0.1")
     elif cmd == "troubleshoot":
         print("If you are attempting to ssh using this client a BrokenPipeError is a indicator of wrong password"
               "When Using SSH a small delay after the first message will occur, then echo the SSH version. "
