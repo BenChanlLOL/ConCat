@@ -3,7 +3,7 @@
 # Name: ConCat
 # Version: 0.2
 # link to github project: https://github.com/BenChanlLOL/ConCat
-# updated on 14/06/2024
+# updated on 14/05/2024
 
 import socket
 from sys import argv
