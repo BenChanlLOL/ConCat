@@ -1,15 +1,5 @@
-Concat is a multi-purpose tool for network written in python
+If you do not want to edit the code, just download from the releases
 
-install using
-`git clone https://github.com/BenChanlLOL/ConCat.git `
+if you want to edit the code, edit and then build with
 
-`cd ConCat`
-
-`pip install -R requirement.txt`
-
-`python3 main.py`
-
-input the details when prompted
-Then use `help`
-
-If you want to bind a server, when asked for an IP to connect to, input "ignore"
+'go build ConCat.go'
